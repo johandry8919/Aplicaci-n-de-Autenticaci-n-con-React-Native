@@ -27,7 +27,6 @@ export default function LoginScreen() {
     }
 
     setIsSubmitting(true);
-    
     try {
       await login(email, password);
     } catch (error) {
@@ -39,7 +38,7 @@ export default function LoginScreen() {
 
   return (
     <>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
       <View style={styles.container}>
         <View style={styles.content}>
           <View style={styles.logoContainer}>

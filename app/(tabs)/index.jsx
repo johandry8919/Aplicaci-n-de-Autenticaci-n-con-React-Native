@@ -3,10 +3,7 @@ import { useAuth } from "../../context/AuthContext";
 
 
 export default function HomeScreen() {
-  
   const {user} = useAuth();
-
-
   return (
     <View style={styles.container}>
       {user ? (

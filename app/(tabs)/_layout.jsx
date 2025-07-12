@@ -1,6 +1,6 @@
 import { Drawer } from "expo-router/drawer";
 import { useAuth } from "../../context/AuthContext";
-import { View, Text, ActivityIndicator } from "react-native";
+import { View, Text} from "react-native";
 import {
   DrawerContentScrollView,
   DrawerItem,
@@ -10,10 +10,6 @@ import {
 
 export default function Layout() {
   const { logout } = useAuth();
-
-  
-
-
 
   const CustomDrawerContent = (props) => {
     return (
