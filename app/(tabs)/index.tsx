@@ -1,8 +1,23 @@
 import { View, Text, StyleSheet, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { useAuth } from '../../context/AuthContext';
+import { useEffect } from 'react';
 
 export default function HomeScreen() {
-  const { user } = useAuth();
+      const { user } = useAuth();
+
+
+      const navigation = useNavigation();
+
+      useEffect(() => {
+        if (!user) {
+          navigation.navigate('login'); 
+        }
+      }, [user, navigation]);
+
+      if (!user) {
+        return null; 
+      }
 
   return (
     <View style={styles.container}>
@@ -31,13 +46,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff', // Añadido color de fondo
+    backgroundColor: '#fff', 
   },
   logo: {
     width: 350,
     height: 200,
     resizeMode: 'contain',
-    marginBottom: 40, // Aumentado el margen inferior
+    marginBottom: 40, 
   },
   welcomeText: {
     fontSize: 20,

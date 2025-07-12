@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     width: 350,
     height: 200,
     resizeMode: 'contain',
-    marginBottom: 20,
+    marginBottom: -60,
   },
   formContainer: {
     marginBottom: 20,
