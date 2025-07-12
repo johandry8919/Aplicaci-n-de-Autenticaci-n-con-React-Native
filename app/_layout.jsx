@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { use, useEffect } from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 import { AuthProvider, useAuth } from '../context/AuthContext';
@@ -40,7 +40,7 @@ function RootLayoutNav() {
   const { session } = useSession();
   const router = useRouter();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!isLoading) {
       const isAuthenticated = user && session;
       router.replace(isAuthenticated ? '/(tabs)' : '/login');
@@ -57,8 +57,7 @@ function RootLayoutNav() {
 
   return (
     <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="(tabs)" />
-      <Stack.Screen name="login" />
+      {user? <Stack.Screen name="(tabs)" />: <Stack.Screen name="login" />}
     </Stack>
   );
 }

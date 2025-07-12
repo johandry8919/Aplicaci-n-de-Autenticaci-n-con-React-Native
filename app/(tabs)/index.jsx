@@ -1,9 +1,10 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image} from "react-native";
 import { useAuth } from "../../context/AuthContext";
 
 
 export default function HomeScreen() {
-  const { user } = useAuth();
+  
+  const {user} = useAuth();
 
 
   return (

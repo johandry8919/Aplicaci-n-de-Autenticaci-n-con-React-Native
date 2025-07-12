@@ -1,16 +1,17 @@
 import { Drawer } from "expo-router/drawer";
 import { useAuth } from "../../context/AuthContext";
-import { View, Text } from "react-native";
+import { View, Text, ActivityIndicator } from "react-native";
 import {
   DrawerContentScrollView,
   DrawerItem,
   DrawerItemList,
 } from "@react-navigation/drawer";
 
+
 export default function Layout() {
   const { logout } = useAuth();
 
-  const { user } = useAuth();
+  
 
 
 

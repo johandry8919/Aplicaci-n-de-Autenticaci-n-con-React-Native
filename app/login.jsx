@@ -39,10 +39,7 @@ export default function LoginScreen() {
 
   return (
     <>
-      <StatusBar 
-        barStyle="light-content" 
-        backgroundColor="#CC151A" 
-      />
+      <StatusBar style="auto" />
       <View style={styles.container}>
         <View style={styles.content}>
           <View style={styles.logoContainer}>
