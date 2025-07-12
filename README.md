@@ -24,7 +24,7 @@ React Navigation (Drawer Navigation)
 React Native Gesture Handler & Reanimated (Para animaciones y gestos)
 
 
-
+////////////////////////////////////////////
 ✨ Características principales
 Autenticación segura:
 
@@ -60,38 +60,7 @@ Expo CLI (opcional)
 
 ////////////////////////////////////////////
 
-✨ Características principales
-Autenticación segura:
 
-Validación de campos en cliente
-
-Estados de carga durante las operaciones
-
-Protección de rutas privadas
-
-Interfaz intuitiva:
-
-Diseño responsive
-
-Feedback visual para errores
-
-Menú lateral accesible
-
-Arquitectura limpia:
-
-Separación clara de responsabilidades
-
-Componentes reutilizables
-
-Tipado estático con TypeScript
-
-🚀 Cómo ejecutar el proyecto
-Prerrequisitos
-Node.js (v18+)
-
-npm o yarn
-
-Expo CLI (opcional)
 
 
 /////////////////////////
@@ -105,4 +74,6 @@ Las contribuciones son bienvenidas. Por favor abre un issue o pull request para 
 Para preguntas o soporte, contacta al desarrollador:
 
 Email: rojas.rojas440@gmail.com
+
+////////////////////////////////////////////
 
