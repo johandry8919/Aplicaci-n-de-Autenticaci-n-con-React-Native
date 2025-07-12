@@ -74,9 +74,9 @@ const login = useCallback(async (email, password) => {
     // 3. Parsear a JSON
     const responseData = JSON.parse(sanitizedResponse);
 
-    // if (!response.ok || !responseData.success) {
-    //   throw new Error(responseData.message || 'Error en la autenticación');
-    // }
+    if (!response.ok || !responseData.success) {
+      throw new Error(responseData.message || 'Error en la autenticación');
+    }
 
     // Guardar datos del usuario
     const userData = {
@@ -84,8 +84,11 @@ const login = useCallback(async (email, password) => {
       email: responseData.data.email,
       cedula: responseData.data.cedula,
       rol: responseData.data.id_rol,
-      token: responseData.data.token
+      token: responseData.data.token,
+      success: responseData.data.success
     };
+
+
 
     await AsyncStorage.multiSet([
       [USER_STORAGE_KEY, JSON.stringify(userData)],

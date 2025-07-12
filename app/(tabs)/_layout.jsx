@@ -2,9 +2,23 @@ import { Drawer } from 'expo-router/drawer';
 import { useAuth } from '../../context/AuthContext';
 import { View, Text } from 'react-native';
 import { DrawerContentScrollView, DrawerItem, DrawerItemList } from '@react-navigation/drawer';
+import { useNavigation } from '@react-navigation/native';
+import { useEffect } from 'react';
 
 export default function Layout() {
   const { logout } = useAuth();
+
+  const { user } = useAuth();
+  
+  const navigation = useNavigation();
+  
+        useEffect(() => {
+          if (!user) {
+            navigation.navigate('../login'); 
+          }
+        }, [user, navigation]);
+  
+       
 
   const CustomDrawerContent = (props) => {
     return (

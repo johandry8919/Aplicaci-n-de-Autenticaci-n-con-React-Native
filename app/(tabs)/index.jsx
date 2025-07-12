@@ -11,14 +11,11 @@ export default function HomeScreen() {
 
       useEffect(() => {
         if (!user) {
-          navigation.navigate('login'); 
+          navigation.navigate('../login'); 
         }
       }, [user, navigation]);
 
-      if (!user) {
-        return null; 
-      }
-
+     
   return (
     <View style={styles.container}>
         {user ? (

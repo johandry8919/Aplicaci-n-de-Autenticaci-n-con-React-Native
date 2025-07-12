@@ -11,7 +11,8 @@
   "include": [
     "**/*.ts",
     "**/*.tsx",
+    "**/*.jsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-, "components/AuthForm.tsx", "app/(tabs)/_layout.jsx", "app/(tabs)/explore.jsx"  ]
+, "components/AuthForm.tsx", "app/(tabs)/_layout.jsx", "app/(tabs)/explore.jsx", "app/(tabs)/index.jsx", "app/register.jsx"  ]
 }
