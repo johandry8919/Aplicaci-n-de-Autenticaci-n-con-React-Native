@@ -92,3 +92,17 @@ Node.js (v18+)
 npm o yarn
 
 Expo CLI (opcional)
+
+
+/////////////////////////
+📝 Licencia
+Este proyecto está bajo la licencia MIT. Ver el archivo LICENSE para más detalles.
+
+🤝 Contribuciones
+Las contribuciones son bienvenidas. Por favor abre un issue o pull request para sugerencias o mejoras.
+
+📬 Contacto
+Para preguntas o soporte, contacta al desarrollador:
+
+Email: rojas.rojas440@gmail.com
+
