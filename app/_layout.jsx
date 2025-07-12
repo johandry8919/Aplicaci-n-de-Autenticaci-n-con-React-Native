@@ -1,19 +1,51 @@
-
+import React from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
-import { Stack} from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
 import { AuthProvider, useAuth } from '../context/AuthContext';
+import { SessionProvider, useSession } from '../context/SessionContext';
 
 export default function RootLayout() {
   return (
-    <AuthProvider>
-      <RootLayoutNav />
-    </AuthProvider>
+    <SessionProvider>
+      <AuthProvider>
+        <AuthSessionSync />
+        <RootLayoutNav />
+      </AuthProvider>
+    </SessionProvider>
   );
+}
+
+// Componente para sincronizar Auth y Session
+function AuthSessionSync() {
+  const { user } = useAuth();
+  const { setSession } = useSession();
+
+  React.useEffect(() => {
+    if (user) {
+      setSession({
+        token: user.token,
+        userId: user.id,
+        // otros datos de sesión
+      });
+    } else {
+      setSession(null);
+    }
+  }, [user]);
+
+  return null;
 }
 
 function RootLayoutNav() {
   const { user, isLoading } = useAuth();
+  const { session } = useSession();
+  const router = useRouter();
 
+  React.useEffect(() => {
+    if (!isLoading) {
+      const isAuthenticated = user && session;
+      router.replace(isAuthenticated ? '/(tabs)' : '/login');
+    }
+  }, [user, session, isLoading]);
 
   if (isLoading) {
     return (
@@ -25,8 +57,8 @@ function RootLayoutNav() {
 
   return (
     <Stack screenOptions={{ headerShown: false }}>
-      {user != null ?<Stack.Screen name="(tabs)" /> :<Stack.Screen name="login" /> }
-      
+      <Stack.Screen name="(tabs)" />
+      <Stack.Screen name="login" />
     </Stack>
   );
 }
