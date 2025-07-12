@@ -24,6 +24,24 @@ React Navigation (Drawer Navigation)
 React Native Gesture Handler & Reanimated (Para animaciones y gestos)
 
 
+📂 Estructura del proyecto
+
+app/
+├── _layout.tsx          # Layout principal de autenticación
+├── login.tsx            # Pantalla de inicio de sesión
+├── register.tsx         # Pantalla de registro
+└── (tabs)/             # Rutas protegidas (requieren autenticación)
+    ├── _layout.tsx      # Layout del drawer navigation
+    ├── index.tsx        # Pantalla principal (Home)
+    └── settings.tsx     # Pantalla de configuración
+
+components/
+└── AuthForm.tsx         # Componente reutilizable para formularios
+
+context/
+└── AuthContext.tsx      # Contexto para gestión de autenticación
+
+
 ////////////////////////////////////////////
 ✨ Características principales
 Autenticación segura:
@@ -59,8 +77,24 @@ npm o yarn
 Expo CLI (opcional)
 
 ////////////////////////////////////////////
+Instalar dependencias:npm install
+# o
+yarn install
 
 
+Configurar entorno:npx expo install
+
+Ejecución
+Android:
+
+bash
+npm run android
+
+
+Web (modo desarrollo):
+
+bash
+npm run web
 
 
 /////////////////////////
