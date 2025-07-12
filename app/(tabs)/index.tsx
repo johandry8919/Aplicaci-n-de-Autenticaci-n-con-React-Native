@@ -8,13 +8,14 @@ export default function HomeScreen() {
     <View style={styles.container}>
         {user ? (
         <Text style={styles.welcomeText}>Bienvenido, {user.email}</Text>
+        
       ) : (
         <Text style={styles.welcomeText}>No has iniciado sesión</Text>
       )}
 
-      
+      <Text style={styles.welcomeText}>app en En construcción</Text>
       <Image 
-        source={require('../../assets/images/logo_header.jpg')} 
+        source={require('../../assets/images/construction.jpg')} 
         style={styles.logo}
       />
 

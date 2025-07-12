@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator ,StyleSheet} from 'react-native';
 import { Stack } from 'expo-router';
 import { AuthProvider, useAuth } from '../context/AuthContext';
 
@@ -17,7 +17,7 @@ function RootLayoutNav() {
 
   if (isLoading) {
     return (
-      <View >
+      <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" />
       </View>
     );
@@ -30,10 +30,10 @@ function RootLayoutNav() {
   );
 }
 
-const styles = {
+const styles = StyleSheet.create ({
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-};
+})
