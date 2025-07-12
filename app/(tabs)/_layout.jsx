@@ -9,15 +9,11 @@ export default function Layout() {
   const CustomDrawerContent = (props) => {
     return (
       <DrawerContentScrollView {...props}>
-        {/* Encabezado del drawer */}
         <View style={{ padding: 16 }}>
           <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Menú Principal</Text>
         </View>
-
-        {/* Lista automática de pantallas con sus labels */}
         <DrawerItemList {...props} />
 
-        {/* Botón de cerrar sesión al final */}
         <View style={{ marginTop: 'auto', paddingVertical: 16 }}>
           <DrawerItem
             label="Cerrar sesión"

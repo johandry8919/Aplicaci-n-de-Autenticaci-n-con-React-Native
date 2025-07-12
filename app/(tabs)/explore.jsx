@@ -1,6 +1,7 @@
+
 import { View ,Text ,StyleSheet , Image} from 'react-native';
 
-export default function Validar_Comuna() {
+export default function Roles() {
   return (
    <View style={styles.container}>
       <Text style={styles.title}>En construcción</Text>
@@ -12,6 +13,8 @@ export default function Validar_Comuna() {
   );
 }
 
+
+
 const styles = StyleSheet.create({
   container: {
     color: '#808080',
@@ -20,7 +23,6 @@ const styles = StyleSheet.create({
     alignItems:'center'
     
   },
-
   title:{
     fontSize:25,
     fontWeight:800
