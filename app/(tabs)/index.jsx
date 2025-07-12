@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useAuth } from '../../context/AuthContext';
 import { useEffect } from 'react';
+import { Redirect } from 'expo-router';
 
 export default function HomeScreen() {
       const { user } = useAuth();
@@ -9,11 +10,11 @@ export default function HomeScreen() {
 
       const navigation = useNavigation();
 
-      useEffect(() => {
-        if (!user) {
-          navigation.navigate('../login'); 
-        }
-      }, [user, navigation]);
+       useEffect(() => {
+                if (!user) { 
+                  return <Redirect href="/login" />;
+                }
+              }, [user, navigation]);
 
      
   return (

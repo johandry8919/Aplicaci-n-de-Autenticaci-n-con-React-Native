@@ -4,6 +4,7 @@ import { View, Text } from 'react-native';
 import { DrawerContentScrollView, DrawerItem, DrawerItemList } from '@react-navigation/drawer';
 import { useNavigation } from '@react-navigation/native';
 import { useEffect } from 'react';
+import { Redirect } from 'expo-router';
 
 export default function Layout() {
   const { logout } = useAuth();
@@ -13,8 +14,8 @@ export default function Layout() {
   const navigation = useNavigation();
   
         useEffect(() => {
-          if (!user) {
-            navigation.navigate('../login'); 
+          if (!user) { 
+            return <Redirect href="/login" />;
           }
         }, [user, navigation]);
   
