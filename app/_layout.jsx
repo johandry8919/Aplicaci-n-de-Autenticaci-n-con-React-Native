@@ -15,7 +15,7 @@ export default function RootLayout() {
   );
 }
 
-// Componente para sincronizar Auth y Session
+
 function AuthSessionSync() {
   const { user } = useAuth();
   const { setSession } = useSession();
