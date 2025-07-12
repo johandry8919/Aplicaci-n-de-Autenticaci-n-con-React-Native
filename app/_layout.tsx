@@ -13,6 +13,7 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const { user, isLoading } = useAuth();
+  
 
   if (isLoading) {
     return (

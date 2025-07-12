@@ -1,20 +1,40 @@
 import { Link } from 'expo-router';
 import { useState } from 'react';
-import { StyleSheet, Text, TextInput, View, Image, TouchableOpacity, StatusBar } from 'react-native';
+import { 
+  StyleSheet, 
+  Text, 
+  TextInput, 
+  View, 
+  Image, 
+  TouchableOpacity, 
+  StatusBar,
+  ActivityIndicator,
+  Alert 
+} from 'react-native';
 import { useAuth } from '../context/AuthContext';
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { login } = useAuth();
+  
 
-  const handleSubmit = () => {
-    if (!email || !password) {
-      alert('Por favor ingresa email y contraseña');
+  const handleSubmit = async () => {
+    if (!email.trim() || !password.trim()) {
+      Alert.alert('Error', 'Por favor ingresa email y contraseña');
       return;
     }
+
+    setIsSubmitting(true);
     
-    login(email, password);
+    try {
+      await login(email, password);
+    } catch (error) {
+      Alert.alert('Error', 'Email o Clave incorrectas');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -24,9 +44,7 @@ export default function LoginScreen() {
         backgroundColor="#CC151A" 
       />
       <View style={styles.container}>
-        {/* Contenedor principal con padding superior para evitar el status bar */}
         <View style={styles.content}>
-          {/* Contenedor del logo y título */}
           <View style={styles.logoContainer}>
             <Image 
               source={require('../assets/images/logo_header.jpg')} 
@@ -34,7 +52,6 @@ export default function LoginScreen() {
             />
           </View>
 
-          {/* Formulario */}
           <View style={styles.formContainer}>
             <TextInput
               style={styles.input}
@@ -44,6 +61,7 @@ export default function LoginScreen() {
               onChangeText={setEmail}
               autoCapitalize="none"
               keyboardType="email-address"
+              editable={!isSubmitting}
             />
             <TextInput
               style={styles.input}
@@ -52,22 +70,29 @@ export default function LoginScreen() {
               value={password}
               onChangeText={setPassword}
               secureTextEntry
+              editable={!isSubmitting}
             />
             
             <TouchableOpacity 
-              style={styles.button} 
+              style={[styles.button, isSubmitting && styles.buttonDisabled]} 
               onPress={handleSubmit}
+              disabled={isSubmitting}
             >
-              <Text style={styles.buttonText}>Iniciar Sesión</Text>
+              {isSubmitting ? (
+                <ActivityIndicator color="white" />
+              ) : (
+                <Text style={styles.buttonText}>Iniciar Sesión</Text>
+              )}
             </TouchableOpacity>
           </View>
 
-          {/* Enlace de registro */}
           <View style={styles.footer}>
             <Link href="/register" asChild>
-              <Text style={styles.link}>
-                ¿No tienes cuenta? <Text style={styles.linkBold}>Regístrate</Text>
-              </Text>
+              <TouchableOpacity disabled={isSubmitting}>
+                <Text style={styles.link}>
+                  ¿No tienes cuenta? <Text style={styles.linkBold}>Regístrate</Text>
+                </Text>
+              </TouchableOpacity>
             </Link>
           </View>
         </View>
@@ -84,7 +109,7 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     padding: 20,
-    paddingTop: StatusBar.currentHeight ? StatusBar.currentHeight + 20 : 50, // Asegura espacio para la barra de estado
+    paddingTop: StatusBar.currentHeight ? StatusBar.currentHeight + 20 : 50,
     justifyContent: 'center',
   },
   logoContainer: {
@@ -115,6 +140,11 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 8,
     alignItems: 'center',
+    justifyContent: 'center',
+    height: 50,
+  },
+  buttonDisabled: {
+    backgroundColor: '#7fb3ff',
   },
   buttonText: {
     color: 'white',

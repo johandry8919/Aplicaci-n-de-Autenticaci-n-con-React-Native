@@ -28,6 +28,12 @@ export default function Layout() {
         }}
       />
       <Drawer.Screen
+        name="Validar_Comuna"
+        options={{
+          title: 'Validar Comuna ',
+        }}
+      />
+      <Drawer.Screen
         name="settings"
         options={{
           title: 'Configuración',
