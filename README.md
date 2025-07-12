@@ -1,50 +1,94 @@
-# Welcome to your Expo app 👋
+📱 Aplicación de Autenticación con React Native
+Descripción
+Esta es una aplicación móvil desarrollada con React Native que implementa un sistema de autenticación local con:
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Inicio de sesión y registro de usuarios
 
-## Get started
+Navegación protegida
 
-1. Install dependencies
+Menú lateral (Drawer Navigation)
 
-   ```bash
-   npm install
-   ```
+Formularios con validación
 
-2. Start the app
+Gestión de estado con Context API
 
-   ```bash
-   npx expo start
-   ```
+🛠 Tecnologías utilizadas
+React Native (v0.73+)
 
-In the output, you'll find options to open the app in a
+TypeScript
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Expo Router (Sistema de navegación basado en archivos)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+React Navigation (Drawer Navigation)
 
-## Get a fresh project
+React Native Gesture Handler & Reanimated (Para animaciones y gestos)
 
-When you're ready, run:
 
-```bash
-npm run reset-project
-```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+✨ Características principales
+Autenticación segura:
 
-## Learn more
+Validación de campos en cliente
 
-To learn more about developing your project with Expo, look at the following resources:
+Estados de carga durante las operaciones
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Protección de rutas privadas
 
-## Join the community
+Interfaz intuitiva:
 
-Join our community of developers creating universal apps.
+Diseño responsive
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Feedback visual para errores
+
+Menú lateral accesible
+
+Arquitectura limpia:
+
+Separación clara de responsabilidades
+
+Componentes reutilizables
+
+Tipado estático con TypeScript
+
+🚀 Cómo ejecutar el proyecto
+Prerrequisitos
+Node.js (v18+)
+
+npm o yarn
+
+Expo CLI (opcional)
+
+////////////////////////////////////////////
+
+✨ Características principales
+Autenticación segura:
+
+Validación de campos en cliente
+
+Estados de carga durante las operaciones
+
+Protección de rutas privadas
+
+Interfaz intuitiva:
+
+Diseño responsive
+
+Feedback visual para errores
+
+Menú lateral accesible
+
+Arquitectura limpia:
+
+Separación clara de responsabilidades
+
+Componentes reutilizables
+
+Tipado estático con TypeScript
+
+🚀 Cómo ejecutar el proyecto
+Prerrequisitos
+Node.js (v18+)
+
+npm o yarn
+
+Expo CLI (opcional)
