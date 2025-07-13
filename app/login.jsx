@@ -12,6 +12,7 @@ import {
   Alert 
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
+import * as Network from 'expo-network';
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('');
@@ -30,7 +31,14 @@ export default function LoginScreen() {
     try {
       await login(email, password);
     } catch (error) {
-      Alert.alert('Error', 'Email o Clave incorrectas');
+        const networkState = await Network.getNetworkStateAsync();
+        if (!networkState.isConnected) {
+          Alert.alert('Se requiere conexión a internet');
+        }else{
+           Alert.alert('Error', 'Email o Clave incorrectas');
+
+        }
+     
     } finally {
       setIsSubmitting(false);
     }

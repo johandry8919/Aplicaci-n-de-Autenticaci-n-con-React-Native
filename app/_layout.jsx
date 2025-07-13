@@ -17,8 +17,8 @@ export default function RootLayout() {
 
 
 function AuthSessionSync() {
-  const { user } = useAuth();
-  const { setSession } = useSession();
+  const { user } = useAuth(null);
+  const { setSession } = useSession(false);
 
   React.useEffect(() => {
     if (user) {
@@ -36,8 +36,8 @@ function AuthSessionSync() {
 }
 
 function RootLayoutNav() {
-  const { user, isLoading } = useAuth();
-  const { session } = useSession();
+  const { user, isLoading } = useAuth(null);
+  const { session } = useSession(false);
   const router = useRouter();
 
   useEffect(() => {

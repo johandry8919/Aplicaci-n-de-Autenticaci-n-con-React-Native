@@ -1,13 +1,14 @@
 import { View, Text, StyleSheet, Image} from "react-native";
 import { useAuth } from "../../context/AuthContext";
 
-
 export default function HomeScreen() {
   const {user} = useAuth();
   return (
     <View style={styles.container}>
       {user ? (
         <Text style={styles.welcomeText}>Bienvenido, {user.email}</Text>
+
+
         
       ) : (
         <Text style={styles.welcomeText}>No has iniciado sesión</Text>

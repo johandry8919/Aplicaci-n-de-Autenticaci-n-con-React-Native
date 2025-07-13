@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect, useContext, useCallback } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+
 // Crear el contexto con valores iniciales
 const AuthContext = createContext({
   user: null,
@@ -26,6 +27,10 @@ export const AuthProvider = ({ children }) => {
 
   // Cargar datos de autenticación al iniciar
   const loadAuthData = useCallback(async () => {
+
+    
+
+
     try {
       const [savedUser, savedToken] = await Promise.all([
         AsyncStorage.getItem(USER_STORAGE_KEY),
@@ -55,6 +60,11 @@ const login = useCallback(async (email, password) => {
   setAuthState(prev => ({ ...prev, isLoading: true }));
 
   try {
+
+     
+
+
+
     const response = await fetch(
       `${API_BASE_URL}/loguin?correo=${encodeURIComponent(email)}&contraseña=${encodeURIComponent(password)}`,
       {

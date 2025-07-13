@@ -1,6 +1,6 @@
 import { Drawer } from "expo-router/drawer";
 import { useAuth } from "../../context/AuthContext";
-import { View, Text} from "react-native";
+import { View, Text, ActivityIndicator ,StyleSheet} from "react-native";
 import {
   DrawerContentScrollView,
   DrawerItem,
@@ -9,7 +9,15 @@ import {
 
 
 export default function Layout() {
-  const { logout } = useAuth();
+  const { logout ,user} = useAuth();
+   if (!user) {
+      return (
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" />
+        </View>
+      );
+    }
+  
 
   const CustomDrawerContent = (props) => {
     return (
@@ -62,6 +70,21 @@ export default function Layout() {
           title: "Validar Comuna",
         }}
       />
+      <Drawer.Screen
+        name="YoutubeDownloader"
+        options={{
+          drawerLabel: "YoutubeDownloader",
+          title: "YoutubeDownloader",
+        }}
+      />
     </Drawer>
   );
 }
+
+const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
