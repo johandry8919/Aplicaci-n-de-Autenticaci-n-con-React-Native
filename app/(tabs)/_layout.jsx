@@ -70,13 +70,7 @@ export default function Layout() {
           title: "Validar Comuna",
         }}
       />
-      <Drawer.Screen
-        name="YoutubeDownloader"
-        options={{
-          drawerLabel: "YoutubeDownloader",
-          title: "YoutubeDownloader",
-        }}
-      />
+      
     </Drawer>
   );
 }

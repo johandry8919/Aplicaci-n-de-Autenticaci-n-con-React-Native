@@ -4,3 +4,5 @@
 <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
 <!-- Para notificaciones de descarga -->
 <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+
+<uses-permission android:name="android.permission.INTERNET" />
