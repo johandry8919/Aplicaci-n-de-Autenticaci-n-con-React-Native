@@ -30,7 +30,7 @@ function AuthSessionSync() {
     } else {
       setSession(null);
     }
-  }, [user]);
+  }, [user, setSession]);
 
   return null;
 }
@@ -45,7 +45,7 @@ function RootLayoutNav() {
       const isAuthenticated = user && session;
       router.replace(isAuthenticated ? '/(tabs)' : '/login');
     }
-  }, [user, session, isLoading]);
+  }, [user, session, isLoading, router]);
 
   if (isLoading) {
     return (
