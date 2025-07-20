@@ -39,7 +39,7 @@ export default function Layout() {
       </DrawerContentScrollView>
     );
   };
-
+//faa3dc480981bbfb734839367d2c9367
   return (
     <Drawer
       drawerContent={(props) => <CustomDrawerContent {...props} />}
@@ -57,19 +57,23 @@ export default function Layout() {
         }}
       />
       <Drawer.Screen
-        name="explore"
+        name="registro_votos"
         options={{
-          drawerLabel: "Roles",
-          title: "Roles",
+          drawerLabel: "Registro de voto",
+          title: "Registro de voto",
         }}
       />
-      <Drawer.Screen
-        name="Validar_Comuna"
+
+       <Drawer.Screen
+        name="filtrar_Registros"
         options={{
-          drawerLabel: "Validar Comuna",
-          title: "Validar Comuna",
+          drawerLabel: "Estadisticas de Votos",
+          title: "Votos Registrados",
         }}
       />
+
+     
+      
       
     </Drawer>
   );
